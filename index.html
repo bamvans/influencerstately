@@ -21,7 +21,7 @@
 
 <body>
     <div id="particles-js" class="home-particles"></div>
-    <div class="container" style="padding-top: 6rem; padding-bottom: 6rem;">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12">
                 <img class="logo" src="images/logo.png">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm">
+            <div class="col-12 col-sm d-none d-sm-block" style="transform: translateY(-25%);"><!-- Only hidden on small/mobile devices -->
                 <div class="ml-auto mdl-card mdl-shadow--2dp" style="width: 100%;">
                     <div class="mdl-card__title">
                         <h3 class="color-pink" style="margin: 0px;">Influencer re-brand worth $2,5K</h3>
@@ -126,8 +126,53 @@
                         <p>
                             We appreciate that influence. We're here to help.
                         </p>
-                        <form action="contact-mail.php" method="POST">
-                            <div class="mdl-textfield mdl-js-textfield" style="width: 100%; padding-bottom: 0px;">
+                        <form id="ajax-contact" method="post" action="contact-mail.php">
+                            <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
+                                <input class="mdl-textfield__input" type="text" name="namesurname" id="name-surname">
+                                <label class="mdl-textfield__label color-pink-input-placeholder" for="name-surname">Name & Surname</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+                                <input class="mdl-textfield__input" type="text" name="email" id="email">
+                                <label class="mdl-textfield__label color-pink-input-placeholder" for="email">Email</label>
+                            </div>
+                            <div class="text-center">
+                                <img id="youtube-select" src="images/YouTube.png" style="width: 100px; border-radius: 10px;" data-selected="false">
+                                <b>OR</b>
+                                <img id="instagram-select" src="images/Instagram.png" style="width: 100px; border-radius: 10px;" data-selected="false">
+                            </div>
+                            <div id="link-fields"></div>
+                            <div id="description-field" class="mdl-textfield mdl-js-textfield" style="width: 100%">
+                                <input class="mdl-textfield__input" type="text" name="description" id="description">
+                                <label class="mdl-textfield__label color-pink-input-placeholder" for="description">What do you want your brand to be?</label>
+                            </div>
+                            <p>
+                                Winners will be contacted via email on 28th of October 2018.
+                            </p>
+                            <div class="text-center" style="width: 100%;">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width:150px;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm d-block d-sm-none"><!-- Shown only on small/mobile devices -->
+                <div class="ml-auto mdl-card mdl-shadow--2dp" style="width: 100%;">
+                    <div class="mdl-card__title">
+                        <h3 class="color-pink" style="margin: 0px;">Influencer re-brand worth $2,5K</h3>
+                    </div>
+                    <div class="mdl-card__supporting-text" style="width: 100%">
+                        <p>
+                            Our team is made out of interior architects, illustrators,
+                            content writers, strategists, videographers and dreamers
+                            here to bring your brand to life. Why Influencers? Because
+                            good content influences society more than you can imagine.
+                        </p>
+                        <p>
+                            We appreciate that influence. We're here to help.
+                        </p>
+                        <form id="ajax-contact" method="post" action="contact-mail.php">
+                            <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
                                 <input class="mdl-textfield__input" type="text" name="namesurname" id="name-surname">
                                 <label class="mdl-textfield__label color-pink-input-placeholder" for="name-surname">Name & Surname</label>
                             </div>
@@ -182,7 +227,7 @@
             $("#youtube-select").on('click', function() {
                 var selected = $(this).data('selected');
                 if (!selected) {
-                    var youtubeField = '<div id="youtube-field" class="mdl-textfield mdl-js-textfield" style="width: 100%; padding-bottom: 0px;"> ' +
+                    var youtubeField = '<div id="youtube-field" class="mdl-textfield mdl-js-textfield" style="width: 100%;"> ' +
                                     '<input class="mdl-textfield__input" type="text" name="youtube" id="youtube-link"> ' +
                                     '<label class="mdl-textfield__label color-pink-input-placeholder" for="youtube-link">YouTube Link</label> ' +
                                     '</div>';
@@ -198,7 +243,7 @@
             $("#instagram-select").on('click', function() {
                 var selected = $(this).data('selected');
                 if (!selected) {
-                    var instagramField = '<div id="instagram-field" class="mdl-textfield mdl-js-textfield" style="width: 100%; padding-bottom: 0px;"> ' +
+                    var instagramField = '<div id="instagram-field" class="mdl-textfield mdl-js-textfield" style="width: 100%;"> ' +
                                         '<input class="mdl-textfield__input" type="text" name="instagram" id="instagram-link"> ' +
                                         '<label class="mdl-textfield__label color-pink-input-placeholder" for="instagram-link">Instagram Link</label> ' +
                                         '</div>';
