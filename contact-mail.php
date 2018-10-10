@@ -15,10 +15,8 @@
         $recipient = "nunez.s@statelygroup.co"; /*----- Add your email address here------*/
         $subject = "Your Subject $name";/*------ Add your email subject here------*/
         $email_content = "Name: $name";
-        $email_content .= "email: $email\n\n";
-        $email_content .= "youtube: $youtubelink\n\n";
-        $email_content .= "instagram: $instagramlink\n\n";
-        $email_content .= "description:\n$message\n";
+        $email_content .= "Email: $email\n\n";
+        $email_content .= "Message:\n$message\n";
         $email_headers = "From: $name <$email>";
         if (mail($recipient, $subject, $email_content, $email_headers)) {
 
