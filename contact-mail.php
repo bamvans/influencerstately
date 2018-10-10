@@ -12,11 +12,13 @@
             echo "Oops! There was a problem with your submission. Please complete the form and try again.";/*--------- Contact submission erroe Message ---------------*/
             exit;
         }
-        $recipient = "nunez.s@statelygroup.co"; /*----- Add your email address here------*/
+        $recipient = "michel@statelygroup.co"; /*----- Add your email address here------*/
         $subject = "Your Subject $name";/*------ Add your email subject here------*/
-        $email_content = "Name: $name";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Message:\n$message\n";
+        $email_content = "Name: $name\n\n";
+        $email_content .= "\nEmail: $email\n\n";
+        $email_content .= "\nYouTube Link:\n$youtubelink\n";
+        $email_content .= "\nInstagram Link:\n$instagramlink\n";
+        $email_content .= "\nBrand:\n$message\n";
         $email_headers = "From: $name <$email>";
         if (mail($recipient, $subject, $email_content, $email_headers)) {
 
