@@ -4,10 +4,9 @@
         $name = strip_tags(trim($_POST["namesurname"]));
 		$name = str_replace(array("\r","\n"),array(" "," "),$name);
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $message = trim($_POST["description"]);
         $youtubelink = trim($_POST["youtube"]);
         $instagramlink = trim($_POST["instagram"]);
-        if ( empty($name)  OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if ( empty($name) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             http_response_code(400);
             echo "Oops! There was a problem with your submission. Please complete the form and try again.";/*--------- Contact submission erroe Message ---------------*/
             exit;
@@ -18,7 +17,6 @@
         $email_content .= "\nEmail: $email\n\n";
         $email_content .= "\nYouTube Link:\n$youtubelink\n";
         $email_content .= "\nInstagram Link:\n$instagramlink\n";
-        $email_content .= "\nBrand:\n$message\n";
         $email_headers = "From: $name <$email>";
         if (mail($recipient, $subject, $email_content, $email_headers)) {
 
