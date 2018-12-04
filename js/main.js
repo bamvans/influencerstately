@@ -20,9 +20,9 @@ $(function () {
 				$(formMessages).text(response);
 				$('#name').val('');
                 $('#email').val('');
-                $('#description').val('');
-				$('#youtubelink').val('');
-				$('#instagramlink').val('');
+                $('#cell').val('');
+				$('#website').val('');
+				// $('#instagramlink').val('');
 			})
 			.fail(function (data) {
 				$(formMessages).removeClass('success');
